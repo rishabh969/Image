@@ -10,7 +10,6 @@ import com.example.imageapp.adapter.GalleryImageAdapter
 import com.example.imageapp.adapter.GalleryImageClickListener
 import com.example.imageapp.fragment.GalleryFullscreenFragment
 import com.example.imageapp.helper.ResponseItem
-import com.example.imageapp.repository.DataModification
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), GalleryImageClickListener {
