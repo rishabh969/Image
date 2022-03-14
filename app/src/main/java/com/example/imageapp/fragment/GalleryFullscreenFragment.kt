@@ -21,14 +21,16 @@ class GalleryFullscreenFragment : DialogFragment() {
     private var imageList = ArrayList<ResponseItem>()
     private var selectedPosition: Int = 0
     lateinit var tvGalleryTitle: TextView
+    lateinit var tvGalleryDetail:TextView
     lateinit var viewPager: ViewPager
-    lateinit var galleryPagerAdapter: GalleryPagerAdapter
+    private lateinit var galleryPagerAdapter: GalleryPagerAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_gallery_fullscreen, container, false)
 
         viewPager = view.findViewById(R.id.viewPager)
         tvGalleryTitle = view.findViewById(R.id.tvGalleryTitle)
+        tvGalleryDetail = view.findViewById(R.id.tvGalleryDetail)
         imageList = arguments?.getSerializable("imagesTitle") as ArrayList<ResponseItem>
         selectedPosition = arguments?.getInt("position")!!
         galleryPagerAdapter = GalleryPagerAdapter()
@@ -48,6 +50,7 @@ class GalleryFullscreenFragment : DialogFragment() {
     private fun setCurrentItem(position: Int) {
         viewPager.setCurrentItem(position, false)
         tvGalleryTitle.text = imageList[selectedPosition].title
+        tvGalleryDetail.text=imageList[selectedPosition].explanation
     }
 
     // viewpager page change listener
@@ -57,6 +60,7 @@ class GalleryFullscreenFragment : DialogFragment() {
         override fun onPageSelected(position: Int) {
             // set gallery title
             tvGalleryTitle.text = imageList[position].title
+            tvGalleryDetail.text=imageList[position].explanation
         }
 
         override fun onPageScrolled(arg0: Int, arg1: Float, arg2: Int) {

@@ -3,6 +3,7 @@ package com.example.imageapp.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.imageapp.R
 import com.example.imageapp.adapter.GalleryImageAdapter
@@ -22,7 +23,9 @@ class MainActivity : AppCompatActivity(), GalleryImageClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        dataList =DataModification().fetchData(applicationContext)
+        val mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+
+        dataList =mainViewModel.getProjectList(applicationContext)//DataModification().fetchData(applicationContext)
         // init adapter
         galleryAdapter = GalleryImageAdapter(dataList)
         galleryAdapter.listener = this

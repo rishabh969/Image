@@ -20,7 +20,20 @@
         android:textStyle="bold"
         android:padding="10dp"
         android:gravity="center"
+        android:layout_above="@+id/tvGalleryDetail"
+        tools:text="Gallery Image Title"/>
+    <TextView
+        android:id="@+id/tvGalleryDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#7f000000"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:padding="10dp"
+        android:gravity="center"
         android:layout_alignParentBottom="true"
         tools:text="Gallery Image Title"/>
-
 </RelativeLayout>
